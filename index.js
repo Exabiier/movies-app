@@ -88,11 +88,22 @@ async function renderUsers() {
     let users = await getUsers();
     let html = '';
     users.forEach((user, index) => {
-        let htmlSegment = `<div class="user" data-Id="${index}">
-         
-                            <h2>${user.title} ${user.rating}</h2>
-                            
-                        </div>`;
+        let htmlSegment = `<div class="card w-50">
+            <div class="card-body">
+                <h5 class="card-title">${user.title}</h5>
+                <p class="middle card-text">Movie rating: ${user.rating}</p>
+                <p>ID: ${index}</p>
+                <a href="#" class="btn btn-primary">Delete</a>
+            </div>
+        </div>`
+
+
+
+            // `<div class="user" data-Id="${index}">
+            //
+            //                 <h2>${user.title} ${user.rating}</h2>
+            //
+            //             </div>`;
 
         html += htmlSegment;
     });
