@@ -62,32 +62,55 @@ $('#submit-btn').click(function(e){
 
 
 
-
 })
 
-// const moviesURL = "https://giddy-chalk-horse.glitch.me/movies";
-// fetch(moviesURL)
-//     .then( response => response.json())
-//     // .then(data => console.log(data[0]))
-//     .then( data => {$('#editTitle').val(`${data[0].title}`);
-//         $('#editRating').val(`${data[0].rating}`)}
-//         )
-
-    // .then( data => $('#editRating').val(`${data[0].rating}`))
-
-let editTitle;
-let editRating;
-
 const moviesURL = "https://giddy-chalk-horse.glitch.me/movies";
-return function practice(){fetch(moviesURL)
+fetch(moviesURL)
     .then( response => response.json())
     // .then(data => console.log(data[0]))
-    .then( data =>
-    let datas = data.json();return data})
+    .then( data => {$('#editTitle').val(`${data[0].title}`);
+        $('#editRating').val(`${data[0].rating}`)}
+        )
 
-    return
-    )
+    .then( data => $('#editRating').val(`${data[0].rating}`))
+
+async function getUsers() {
+    let url = moviesURL;
+    try {
+        let res = await fetch(url);
+        return await res.json();
+    } catch (error) {
+        console.log(error);
+    }
 }
+
+async function renderUsers() {
+    let users = await getUsers();
+    let html = '';
+    users.forEach((user, index) => {
+        let htmlSegment = `<div class="user" data-Id="${index}">
+         
+                            <h2>${user.title} ${user.rating}</h2>
+                            
+                        </div>`;
+
+        html += htmlSegment;
+    });
+    $('.middle').append(html)
+}
+
+renderUsers();
+
+// const moviesURL = "https://giddy-chalk-horse.glitch.me/movies";
+// return function practice(){fetch(moviesURL)
+//     .then( response => response.json())
+//     // .then(data => console.log(data[0]))
+//     .then( data =>
+//     let datas = data.json();return data})
+//
+//     return
+//     )
+// }
 
 // userMarker.on('dragend', onDragEnd);
 //
