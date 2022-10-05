@@ -63,11 +63,20 @@ $('#submit-btn').click(function(e){
 
 
 
-
-
-
-
 })
+
+function putvalue(){
+    function getMovies1(){
+        fetch(moviesURL)
+            .then( response => response.json())
+            .then( data => {
+
+            } )
+            .catch( error => console.error(error)); /* handle errors */
+    }
+};
+
+putvalue();
 
 // userMarker.on('dragend', onDragEnd);
 //
