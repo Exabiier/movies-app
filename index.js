@@ -31,7 +31,8 @@
 
 $('#submit-btn').click(function(e){
     e.preventDefault();
-    let title = $("#userInput-title").val()
+    let title = $("#userInput-title").val();
+    let rating = $('#userInput-rating').val();
     console.log(title)
 
     // This will how we access
@@ -40,7 +41,7 @@ $('#submit-btn').click(function(e){
 //Post to movies array
 
     const moviesToPost = {
-        rating: `9`,
+        rating: `${rating}`,
         title: `${title}`,
     }
 
