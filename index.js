@@ -93,7 +93,8 @@ async function renderUsers() {
                 <h5 class="card-title">${user.title}</h5>
                 <p class="middle card-text">Movie rating: ${user.rating}</p>
                 <p>ID: ${index}</p>
-                <a href="#" data-id="${user.id}" class="delete-button btn btn-primary">${index} Delete</a>
+                <a href="#" data-id="${user.id}" class="delete-button btn btn-primary">Delete</a>
+                <a href="#" data-id="${user.id}" class="edit-button btn btn-primary">Edit</a>
             </div>
         </div>`
 
