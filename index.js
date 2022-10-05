@@ -120,6 +120,28 @@ $(document).on('click', ".delete-button", function(e){
     e.preventDefault();
     let cardID = $(this).attr('data-id')
     console.log(cardID);
+
+    const moviesURL = "https://giddy-chalk-horse.glitch.me/movies";
+
+//Post to movies array
+
+    const moviesToDelete = {
+        rating: `${this.rating}`,
+        title: `${this.title}`,
+    }
+
+    const postOptions = {
+        method: 'DELETE',
+        headers: {
+            'Content-Type' : 'application/json'},
+        body: JSON.stringify(moviesToDelete)
+    }
+
+
+    fetch(moviesURL, postOptions)
+        .then( response => console.log(response)) /* review was created successfully */
+        .catch( error => console.error(error)); /* handle errors */
+
 })
 
 // const moviesURL = "https://giddy-chalk-horse.glitch.me/movies";
