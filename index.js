@@ -93,7 +93,7 @@ async function renderUsers() {
                 <h5 class="card-title">${user.title}</h5>
                 <p class="middle card-text">Movie rating: ${user.rating}</p>
                 <p>ID: ${index}</p>
-                <a href="#" class="btn btn-primary">Delete</a>
+                <a href="#" data-id="${user.id}" class="delete-button btn btn-primary">${index} Delete</a>
             </div>
         </div>`
 
@@ -111,6 +111,16 @@ async function renderUsers() {
 }
 
 renderUsers();
+
+
+
+//delete user
+
+$(document).on('click', ".delete-button", function(e){
+    e.preventDefault();
+    let cardID = $(this).attr('data-id')
+    console.log(cardID);
+})
 
 // const moviesURL = "https://giddy-chalk-horse.glitch.me/movies";
 // return function practice(){fetch(moviesURL)
