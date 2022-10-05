@@ -65,17 +65,29 @@ $('#submit-btn').click(function(e){
 
 })
 
-const moviesURL = "https://giddy-chalk-horse.glitch.me/movies";
-fetch(moviesURL)
-    .then( response => response.json())
-    // .then(data => console.log(data[0]))
-    .then( data => $('#editTitle').val(`${data[0].title}`))
+// const moviesURL = "https://giddy-chalk-horse.glitch.me/movies";
+// fetch(moviesURL)
+//     .then( response => response.json())
+//     // .then(data => console.log(data[0]))
+//     .then( data => {$('#editTitle').val(`${data[0].title}`);
+//         $('#editRating').val(`${data[0].rating}`)}
+//         )
 
-    .then( data => $('#editRating').val(`${data[0].rating}`))
+    // .then( data => $('#editRating').val(`${data[0].rating}`))
 
 let editTitle;
 let editRating;
 
+const moviesURL = "https://giddy-chalk-horse.glitch.me/movies";
+return function practice(){fetch(moviesURL)
+    .then( response => response.json())
+    // .then(data => console.log(data[0]))
+    .then( data =>
+    let datas = data.json();return data})
+
+    return
+    )
+}
 
 // userMarker.on('dragend', onDragEnd);
 //
