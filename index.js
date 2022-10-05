@@ -1,35 +1,86 @@
-// This will how we access
-const moviesURL = "https://giddy-chalk-horse.glitch.me/movies";
+// // This will how we access
+// const moviesURL = "https://giddy-chalk-horse.glitch.me/movies";
+//
+// //Post to movies array
+//
+// const moviesToPost = {
+//     actors: "Josh Hartnett, Ewan McGregor, Tom Sizemore, Eric Bana",
+//     director: "Ridley Scott",
+//     genre: "Drama, History, War",
+//     plot: "160 elite U.S. soldiers drop into Somalia to capture two top lieutenants of a renegade warlord and find themselves in a desperate battle with a large force of heavily-armed Somalis.",
+//     poster: "https://m.media-amazon.com/images/M/MV5BYWMwMzQxZjQtODM1YS00YmFiLTk1YjQtNzNiYWY1MDE4NTdiXkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_SX300.jpg",
+//     rating: "5",
+//     title: "down",
+//     year: "2001"
+// }
+//
+// const postOptions = {
+//     method: 'POST',
+//     headers: {
+//         'Content-Type' : 'application/json'},
+//     body: JSON.stringify(moviesToPost)
+// }
+//
+// function getMovies(){
+//     fetch(moviesURL, postOptions)
+//         .then( response => console.log(response)) /* review was created successfully */
+//         .catch( error => console.error(error)); /* handle errors */
+// }
+//
+// getMovies();
+
+$('#submit-btn').click(function(e){
+    e.preventDefault();
+    let title = $("#userInput-title").val()
+    console.log(title)
+
+    // This will how we access
+    const moviesURL = "https://giddy-chalk-horse.glitch.me/movies";
 
 //Post to movies array
 
-const moviesToPost = {
-    actors: "Josh Hartnett, Ewan McGregor, Tom Sizemore, Eric Bana",
-    director: "Ridley Scott",
-    genre: "Drama, History, War",
-    plot: "160 elite U.S. soldiers drop into Somalia to capture two top lieutenants of a renegade warlord and find themselves in a desperate battle with a large force of heavily-armed Somalis.",
-    poster: "https://m.media-amazon.com/images/M/MV5BYWMwMzQxZjQtODM1YS00YmFiLTk1YjQtNzNiYWY1MDE4NTdiXkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_SX300.jpg",
-    rating: "5",
-    title: "down",
-    year: "2001"
-}
+    const moviesToPost = {
+        rating: `9`,
+        title: `${title}`,
+    }
 
-const postOptions = {
-    method: 'POST',
-    headers: {
-        'Content-Type' : 'application/json
-    body: JSON.stringify(moviesToPost)
-}
+    const postOptions = {
+        method: 'POST',
+        headers: {
+            'Content-Type' : 'application/json'},
+        body: JSON.stringify(moviesToPost)
+    }
 
-function getMovies(){
-    fetch(moviesURL, postOptions)
-        .then( response => console.log(response)) /* review was created successfully */
-        .catch( error => console.error(error)); /* handle errors */
-}
+    function getMovies(){
+        fetch(moviesURL, postOptions)
+            .then( response => console.log(response)) /* review was created successfully */
+            .catch( error => console.error(error)); /* handle errors */
+    }
 
-getMovies();
+    getMovies();
 
 
+
+
+
+
+
+
+})
+
+// userMarker.on('dragend', onDragEnd);
+//
+// //this is how I get the new coordinates
+// function onDragEnd() {
+//     const lngLat = userMarker.getLngLat();
+//     console.log(lngLat);
+//     let coords = [
+//         `${lngLat.lng}`,
+//         `${lngLat.lat}`
+//     ]
+//     updateWeather(coords)
+//
+// }
 
 
 
