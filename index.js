@@ -125,24 +125,24 @@ $(document).on('click', ".delete-button", function(e){
 
 //Post to movies array
 
-    const moviesToDelete = {
-        rating: `${this.rating}`,
-        title: `${this.title}`,
-    }
+    // const moviesToDelete = {
+    //     rating: `${this.rating}`,
+    //     title: `${this.title}`,
+    // }
 
-    const postOptions = {
+    const deleteOptions = {
         method: 'DELETE',
         headers: {
-            'Content-Type' : 'application/json'},
-        body: JSON.stringify(moviesToDelete)
+            'Content-Type' : 'application/json'}
     }
 
 
-    fetch(moviesURL, postOptions)
-        .then( response => console.log(response)) /* review was created successfully */
-        .catch( error => console.error(error)); /* handle errors */
+    fetch(`${moviesURL}/${cardID}`, deleteOptions)
+        .then( renderUsers);/* review was created successfully */
 
+// fix how to fully delete without refreshing
 })
+
 
 // const moviesURL = "https://giddy-chalk-horse.glitch.me/movies";
 // return function practice(){fetch(moviesURL)
