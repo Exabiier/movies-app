@@ -65,18 +65,17 @@ $('#submit-btn').click(function(e){
 
 })
 
-function putvalue(){
-    function getMovies1(){
-        fetch(moviesURL)
-            .then( response => response.json())
-            .then( data => {
+const moviesURL = "https://giddy-chalk-horse.glitch.me/movies";
+fetch(moviesURL)
+    .then( response => response.json())
+    // .then(data => console.log(data[0]))
+    .then( data => $('#editTitle').val(`${data[0].title}`))
 
-            } )
-            .catch( error => console.error(error)); /* handle errors */
-    }
-};
+    .then( data => $('#editRating').val(`${data[0].rating}`))
 
-putvalue();
+let editTitle;
+let editRating;
+
 
 // userMarker.on('dragend', onDragEnd);
 //
