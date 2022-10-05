@@ -1,12 +1,6 @@
 // This will how we access
 const moviesURL = "https://giddy-chalk-horse.glitch.me/movies";
 
-function getMovies(){
-    fetch("https://misty-glow-driver.glitch.me/movies").then(resp => resp.json()).then(data=>console.log(data));
-}
-
-getMovies();
-
 //Post to movies array
 
 const moviesToPost = {
@@ -28,11 +22,13 @@ const postOptions = {
     body: JSON.stringify(moviesToPost)
 }
 
-function getBooks(){
-    fetch(`${moviesURL}`, postOptions).then(resp => resp.json()).then(data=>console.log(data));
+function getMovies(){
+    fetch(moviesURL, postOptions)
+        .then( response => console.log(response)) /* review was created successfully */
+        .catch( error => console.error(error)); /* handle errors */
 }
 
-getBooks();
+getMovies();
 
 
 
