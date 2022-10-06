@@ -96,6 +96,11 @@ async function renderUsers() {
                 <a href="#" data-id="${user.id}" class="delete-button btn btn-primary">Delete</a>
                 <a href="#" data-id="${user.id}" class="edit-button btn btn-primary">Edit</a>
             </div>
+            <div class="edit-form" style="visibility: hidden">
+               <input id="editTitle" value="" placeholder="title">
+               <input id="editRating" placeholder="rating">
+               <button class=sub-1">Submit</button>
+            </div>
         </div>`
 
 
@@ -142,6 +147,11 @@ $(document).on('click', ".delete-button", function(e){
         .then( renderUsers);/* review was created successfully */
 
 // fix how to fully delete without refreshing
+})
+
+$(document).on('click', ".edit-button", function (e){
+    e.preventDefault();
+    $('.edit-form').css("visibility", 'visible');
 })
 
 
