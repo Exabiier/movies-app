@@ -74,7 +74,7 @@ fetch(moviesURL)
 
     .then( data => $('#editRating').val(`${data[0].rating}`))
 
-async function getUsers() {
+async function getMovies() {
     let url = moviesURL;
     try {
         let res = await fetch(url);
@@ -84,22 +84,21 @@ async function getUsers() {
     }
 }
 
-async function renderUsers() {
-    let users = await getUsers();
+async function renderMovies() {
+    let movies = await getMovies();
     let html = '';
-    users.forEach((user, index) => {
+    movies.forEach((movie, index) => {
 
         let htmlSegment = `<div class="card w-50">
             <div class="card-body">
-                <h5 class="card-title">${user.title}</h5>
-                <p class="middle card-text">Movie rating: ${user.rating}</p>
-                <p>ID: ${index}</p>
-                <a href="#" data-id="${user.id}" class="delete-button btn btn-primary">Delete</a>
-                <a href="#" data-id="${user.id}" class="edit-button btn btn-primary">Edit</a>
+                <h5 class="card-title">${movie.title}</h5>
+                <p class="middle card-text">Movie rating: ${movie.rating}</p>
+                <a href="#" data-id="${movie.id}" class="delete-button btn btn-primary">Delete</a>
+                <a href="#" data-id="${movie.id}" class="edit-button btn btn-primary">Edit</a>
             </div>
             <div class="edit-form" style="visibility: hidden">
-               <input class="editTitle" value="${user.title}" placeholder="title">
-               <input class="editRating" value ="${user.rating}" placeholder="rating">
+               <input class="editTitle" value="${movie.title}" placeholder="title">
+               <input class="editRating" value ="${movie.rating}" placeholder="rating">
                <button class=sub-1">Submit</button>
             </div>
         </div>`
@@ -120,7 +119,7 @@ async function renderUsers() {
     $('.middle').append(html)
 }
 
-renderUsers();
+renderMovies();
 
 // async function renderUsersEdit() {
 //     let users = await getUsers();
@@ -158,7 +157,7 @@ $(document).on('click', ".delete-button", function(e){
 
 
     fetch(`${moviesURL}/${cardID}`, deleteOptions)
-        .then( renderUsers);/* review was created successfully */
+        .then(renderMovies);/* review was created successfully */
 
 // fix how to fully delete without refreshing
 })
