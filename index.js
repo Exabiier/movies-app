@@ -1,33 +1,5 @@
-// // This will how we access
-// const moviesURL = "https://giddy-chalk-horse.glitch.me/movies";
-//
-// //Post to movies array
-//
-// const moviesToPost = {
-//     actors: "Josh Hartnett, Ewan McGregor, Tom Sizemore, Eric Bana",
-//     director: "Ridley Scott",
-//     genre: "Drama, History, War",
-//     plot: "160 elite U.S. soldiers drop into Somalia to capture two top lieutenants of a renegade warlord and find themselves in a desperate battle with a large force of heavily-armed Somalis.",
-//     poster: "https://m.media-amazon.com/images/M/MV5BYWMwMzQxZjQtODM1YS00YmFiLTk1YjQtNzNiYWY1MDE4NTdiXkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_SX300.jpg",
-//     rating: "5",
-//     title: "down",
-//     year: "2001"
-// }
-//
-// const postOptions = {
-//     method: 'POST',
-//     headers: {
-//         'Content-Type' : 'application/json'},
-//     body: JSON.stringify(moviesToPost)
-// }
-//
-// function getMovies(){
-//     fetch(moviesURL, postOptions)
-//         .then( response => console.log(response)) /* review was created successfully */
-//         .catch( error => console.error(error)); /* handle errors */
-// }
-//
-// getMovies();
+
+//This is how we add another movie to the database
 
 $('#submit-btn').click(function(e){
     e.preventDefault();
@@ -59,8 +31,6 @@ $('#submit-btn').click(function(e){
     }
 
     getMovies();
-
-
 
 })
 
@@ -103,17 +73,6 @@ async function renderMovies() {
             </div>
         </div>`
 
-        // $('#editTitle').val(user.title)
-        // $('#editRating').val(user.rating)
-
-
-
-            // `<div class="user" data-Id="${index}">
-            //
-            //                 <h2>${user.title} ${user.rating}</h2>
-            //
-            //             </div>`;
-
         html += htmlSegment;
     });
     $('.middle').append(html)
@@ -121,20 +80,8 @@ async function renderMovies() {
 
 renderMovies();
 
-// async function renderUsersEdit() {
-//     let users = await getUsers();
-//     users.forEach((user, index) => {
-//
-//         $('.editTitle').val(user.title)
-//         $('.editRating').val(user.rating)
-//
-//     });
-// }
-
-// renderUsersEdit()
 
 //delete user
-
 $(document).on('click', ".delete-button", function(e){
     e.preventDefault();
     let cardID = $(this).attr('data-id')
@@ -143,11 +90,6 @@ $(document).on('click', ".delete-button", function(e){
     const moviesURL = "https://giddy-chalk-horse.glitch.me/movies";
 
 //Post to movies array
-
-    // const moviesToDelete = {
-    //     rating: `${this.rating}`,
-    //     title: `${this.title}`,
-    // }
 
     const deleteOptions = {
         method: 'DELETE',
@@ -166,46 +108,6 @@ $(document).on('click', ".edit-button", function (e){
     e.preventDefault();
     $('.edit-form').css("visibility", 'visible');
 })
-
-
-// const moviesURL = "https://giddy-chalk-horse.glitch.me/movies";
-// return function practice(){fetch(moviesURL)
-//     .then( response => response.json())
-//     // .then(data => console.log(data[0]))
-//     .then( data =>
-//     let datas = data.json();return data})
-//
-//     return
-//     )
-// }
-
-// userMarker.on('dragend', onDragEnd);
-//
-// //this is how I get the new coordinates
-// function onDragEnd() {
-//     const lngLat = userMarker.getLngLat();
-//     console.log(lngLat);
-//     let coords = [
-//         `${lngLat.lng}`,
-//         `${lngLat.lat}`
-//     ]
-//     updateWeather(coords)
-//
-// }
-
-
-
-
-
-
-
-
-
-// The R in CRUD: Read
-
-
-
-// The C in CRUD: Create
 
 
 //
