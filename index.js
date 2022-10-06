@@ -88,6 +88,7 @@ async function renderUsers() {
     let users = await getUsers();
     let html = '';
     users.forEach((user, index) => {
+
         let htmlSegment = `<div class="card w-50">
             <div class="card-body">
                 <h5 class="card-title">${user.title}</h5>
@@ -97,11 +98,14 @@ async function renderUsers() {
                 <a href="#" data-id="${user.id}" class="edit-button btn btn-primary">Edit</a>
             </div>
             <div class="edit-form" style="visibility: hidden">
-               <input id="editTitle" value="" placeholder="title">
-               <input id="editRating" placeholder="rating">
+               <input class="editTitle" id="editTitle" value="" placeholder="title">
+               <input class="editRating" id="editRating" placeholder="rating">
                <button class=sub-1">Submit</button>
             </div>
         </div>`
+
+        // $('#editTitle').val(user.title)
+        // $('#editRating').val(user.rating)
 
 
 
@@ -118,7 +122,17 @@ async function renderUsers() {
 
 renderUsers();
 
+async function renderUsersEdit() {
+    let users = await getUsers();
+    users.forEach((user, index) => {
 
+        $('.editTitle').val(user.title)
+        $('.editRating').val(user.rating)
+
+    });
+}
+
+renderUsersEdit()
 
 //delete user
 
