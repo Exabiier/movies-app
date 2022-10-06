@@ -98,8 +98,8 @@ async function renderUsers() {
                 <a href="#" data-id="${user.id}" class="edit-button btn btn-primary">Edit</a>
             </div>
             <div class="edit-form" style="visibility: hidden">
-               <input class="editTitle" id="editTitle" value="" placeholder="title">
-               <input class="editRating" id="editRating" placeholder="rating">
+               <input class="editTitle" value="${user.title}" placeholder="title">
+               <input class="editRating" value ="${user.rating}" placeholder="rating">
                <button class=sub-1">Submit</button>
             </div>
         </div>`
@@ -122,17 +122,17 @@ async function renderUsers() {
 
 renderUsers();
 
-async function renderUsersEdit() {
-    let users = await getUsers();
-    users.forEach((user, index) => {
+// async function renderUsersEdit() {
+//     let users = await getUsers();
+//     users.forEach((user, index) => {
+//
+//         $('.editTitle').val(user.title)
+//         $('.editRating').val(user.rating)
+//
+//     });
+// }
 
-        $('.editTitle').val(user.title)
-        $('.editRating').val(user.rating)
-
-    });
-}
-
-renderUsersEdit()
+// renderUsersEdit()
 
 //delete user
 
